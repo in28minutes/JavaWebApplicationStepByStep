@@ -1,5 +1,5 @@
 ListDirectoryContentInGitFormat
-'''
+```
 package test;
 
 import java.io.BufferedReader;
@@ -56,4 +56,4 @@ public class ListDirectoryContentInGitFormat {
 	}
 
 }
-'''
+```
