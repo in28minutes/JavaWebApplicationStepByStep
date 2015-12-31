@@ -1,46 +1,39 @@
 Bootstrap Sample Page
 ```
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Todos</title>
-	<link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	
-	<style>
-		.footer {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 60px;
-			background-color: #f5f5f5;
-		}
-		
-		.footer .container {
-			width: auto;
-			max-width: 680px;
-			padding: 0 15px;
-		}
-	</style>
+<title>Todos</title>
+<link href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<style>
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 60px;
+		background-color: #f5f5f5;
+	}
+</style>
 </head>
 
 <body>
 
-	<nav role="navigation" class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 
-		<div class="">
-			<a href="/" class="navbar-brand">Brand</a>
-		</div>
+		<a href="/" class="navbar-brand">Brand</a>
 
-		<div class="navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="/todo.do">Todos</a></li>
-				<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/login.do">Login</a></li>
-			</ul>
-		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="/todo.do">Todos</a></li>
+			<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="/login.do">Login</a></li>
+		</ul>
 
 	</nav>
 
@@ -50,9 +43,7 @@ Bootstrap Sample Page
 	</div>
 
 	<footer class="footer">
-		<div class="container">
-			<p>footer content</p>
-		</div>
+		<p>footer content</p>
 	</footer>
 
 	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
@@ -61,7 +52,6 @@ Bootstrap Sample Page
 </body>
 
 </html>
-
 ```
 
 pom.xml
