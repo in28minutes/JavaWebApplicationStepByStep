@@ -1,4 +1,3 @@
+- Maven & Tomcat
 - Servlet LifeCycle
-- JSTL, EL & JSP
-- Request & Session Scopes
 - High Level Web Application Architecture
