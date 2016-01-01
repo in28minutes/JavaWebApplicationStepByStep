@@ -3,8 +3,8 @@ pom.xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.test</groupId>
-	<artifactId>webapp</artifactId>
+	<groupId>com.in28minutes</groupId>
+	<artifactId>in28Minutes-first-webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -21,16 +21,6 @@ pom.xml
 			<version>1.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.5</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -79,7 +69,7 @@ package in28minutes.login;
 
 public class LoginService {
 	public boolean validateUser(String user, String password) {
-		return user.equalsIgnoreCase("in28Minutes") && password.equals("funny");
+		return user.equalsIgnoreCase("in28Minutes") && password.equals("dummy");
 	}
 
 }
@@ -96,20 +86,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LogManager.getLogger(LoginServlet.class);
 	private LoginService service = new LoginService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		logger.info("Dummy");
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
@@ -144,7 +130,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/deletetodo.do")
+@WebServlet(urlPatterns = "/delete-todo.do")
 public class DeleteTodoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -279,22 +265,6 @@ public class TodoService {
 		todos.remove(new Todo(todo));
 	}
 }
-```
-src\main\resources\log4j2.xml
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
-  <Appenders>
-    <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </Console>
-  </Appenders>
-  <Loggers>
-    <Root level="trace">
-      <AppenderRef ref="Console"/>
-    </Root>
-  </Loggers>
-</Configuration>
 ```
 src\main\webapp\WEB-INF\views\login.jsp
 ```
