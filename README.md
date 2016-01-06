@@ -5,23 +5,30 @@
 https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
 
 ###File wise Contents
-- Code-Step1.md : Up and running with a web app in Tomcat
-- Code-Step2.md :	First JSP
-- Code-Step3.md :	Adding a GET Parameter name
-- Code-Step4.md :	Adding another Get Parameter Password
-- Code-Step5.md : Lets add a form
-- Code-Step6.md :	New Form and doPost
-- Code-Step7.md :	Adding Password, validation of userid/password
-- Code-Step8.md :	Adding a TodoService and Todos to welcome.jsp
-- Code-Step9.md :	Bit of Refactoring - Packages	9 days ago
-- Codea-Step11.md : More Refactoring - todo.jsp and TodoServlet
-- Codea-Step12.md	: First JSTL Tag : Using a Loop around todos	
-- Codea-Step13.md	: Add a Todo Form
-- Codea-Step14.md	: Storing User Name into Session	
-- Codea-Step15.md	: Delete Todo with equals and hashcode methods
-- Codea-Step16.md	: Adding webjars for jquery and bootstrap
-- Codea-Step17.md	: updating Bootstrap to 3.3.6
-- Codea-Step18.md	: Moving Add Functionality to a Separate Servlet
-- Codea-Step19.md	: Refactoring: list-todos.do,list-todos.jsp,ListTodosServlet
-- Codea-Step20.md	: Adding a Filter for More Security & Add a category for Todos
-- Codea-Step21.md	: Logout
+- Step01.md :   Up and running with a web app in Tomcat
+- Step02.md :	First JSP
+- Step03.md :	Adding a GET Parameter name
+- Step04.md :	Adding another Get Parameter Password
+- Step05.md :   Lets add a form
+- Step06.md :	New Form and doPost
+- Step07.md :	Adding Password, validation of userid/password
+- Step08.md :	Adding a TodoService and Todos to welcome.jsp
+- Step09.md :	Bit of Refactoring - Packages	9 days ago
+- Step10.md : Redirect from One Servlet to another - New TodoServlet.
+- Step11.md	: First JSTL Tag : Using a Loop around todos	
+- Step12    : Difference between Session and Request Scopes
+- Step13.md	: Add a New Todo
+- Step14.md	: Delete Todo with equals and hashcode methods
+- Step15.md	: Adding webjars for jquery and bootstrap
+- Step16    : Missing Step :) We want you to take a break. Nothing in here..
+- Step17.md	: updating Bootstrap to 3.3.6
+- Step 18 (Code file missing) : Refactoring: list-todos.do,list-todos.jsp,ListTodosServlet. Refer Next Step for code.
+- Step 19 (Code file missing) : Adding a Filter for More Security. Refer Next Step for code.
+- Step20.md	: Logout
+- Step 21 : Theory : Understand Maven and Tomcat
+- Step 22 : Theory : Servlet LifeCycle
+- Step 23 : Theory : Model 1 and Model 2 MVC Architectures
+- Step24.md   : Moving Add Functionality to a New Page.
+- Step25.md   : Add Category Field
+- Step26(Code file missing)    : Format the jsps better. Refer Next Step for code.
+- Step27.md   : Jsp Fragments

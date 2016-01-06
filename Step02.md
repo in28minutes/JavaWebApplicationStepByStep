@@ -1,3 +1,8 @@
+##What we will do?
+- Create LoginServlet again
+- Redirect to a view - JSP
+
+##File Listing
 \pom.xml
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

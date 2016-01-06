@@ -1,3 +1,0 @@
-- Maven & Tomcat
-- Servlet LifeCycle
-- High Level Web Application Architecture
