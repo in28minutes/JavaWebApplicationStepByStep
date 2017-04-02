@@ -1,5 +1,3 @@
-<%@page import="java.util.List"%>
-<%@page import="com.in28minutes.todo.Todo"%>
 <%@ include file="../common/header.jspf"%>
 <%@ include file="../common/navigation.jspf"%>
 
