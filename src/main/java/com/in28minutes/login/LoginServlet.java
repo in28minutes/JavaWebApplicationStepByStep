@@ -10,6 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.in28minutes.todo.TodoService;
 
+/*
+
+ // Method descriptor #15 ()V
+ public void init() throws javax.servlet.ServletException;
+
+ // Method descriptor #37 (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+ public void service(javax.servlet.ServletRequest arg0, javax.servlet.ServletResponse arg1) throws javax.servlet.ServletException, java.io.IOException;
+
+ // Method descriptor #15 ()V
+ public void destroy();
+
+ */
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 

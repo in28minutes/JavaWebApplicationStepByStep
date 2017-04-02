@@ -8,6 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//INITIALIZATION OF JSP
+//CREATE add_002dtodo_jsp.java from add-todo.jsp
+//compile add_002dtodo_jsp.java to add_002dtodo_jsp.class
+//call _jspInit
+
+//SERVICE -> _jspService
+
+//DESTROY -> _jspDestroy
+
 @WebServlet(urlPatterns = "/add-todo.do")
 public class AddTodoServlet extends HttpServlet {
 
