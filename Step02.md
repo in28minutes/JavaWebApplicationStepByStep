@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.in28minutes</groupId>
 	<artifactId>in28Minutes-first-webapp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT version</version>
 	<packaging>war</packaging>
 
 	<dependencies>
