@@ -33,14 +33,7 @@ pipeline {
           }
 	  
 	  */
-	   
-	/*stage("jacoco") {
-            steps {
-		jacoco execPattern: '**/**.class'
-	    }
-	  }
-
-	*/	
+	
 	   stage("deploy to remote server") {
             steps {
 		sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat', 
