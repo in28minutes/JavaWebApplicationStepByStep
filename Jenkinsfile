@@ -31,7 +31,7 @@ pipeline {
 		
 	    }
 	}
-	*/
+	
 	  /*stage("Quality Gate status") {
             steps {
               timeout(time: 1, unit: 'HOURS') {
