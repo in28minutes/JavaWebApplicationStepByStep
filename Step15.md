@@ -12,7 +12,7 @@ pom.xml
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
+			<version>8.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -25,12 +25,12 @@ pom.xml
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>3.3.6</version>
+			<version>5.1.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
-			<version>1.9.1</version>
+			<version>3.6.0</version>
 		</dependency>
 
 	</dependencies>
@@ -41,17 +41,22 @@ pom.xml
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
+					<version>3.8.1</version>
 					<configuration>
 						<verbose>true</verbose>
-						<source>1.7</source>
-						<target>1.7</target>
+						<source>17</source>
+						<target>17</target>
 						<showWarnings>true</showWarnings>
 					</configuration>
 				</plugin>
 				<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
+					<artifactId>tomcat8-maven-plugin</artifactId>
 					<version>2.2</version>
 					<configuration>
 						<path>/</path>
@@ -91,7 +96,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private LoginService service = new LoginService();
+	private final LoginService service = new LoginService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -134,7 +139,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DeleteTodoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -160,7 +165,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ListTodoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -219,20 +224,17 @@ public class Todo {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Todo other = (Todo) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (name == null) {
+			return other.name == null;
+        } else return name.equals(other.name);
 	}
 
 }
@@ -245,7 +247,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoService {
-	private static List<Todo> todos = new ArrayList<Todo>();
+	private static final List<Todo> todos = new ArrayList<Todo>();
 
 	static {
 		todos.add(new Todo("Learn Web Application"));

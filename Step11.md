@@ -12,15 +12,14 @@ pom.xml
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
+			<version>8.0.1</version>
 			<scope>provided</scope>
 		</dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-        </dependency>
-		
+        </dependency>		
 	</dependencies>
 
 	<build>
@@ -29,17 +28,22 @@ pom.xml
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
+					<version>3.8.1</version>
 					<configuration>
 						<verbose>true</verbose>
-						<source>1.7</source>
-						<target>1.7</target>
+						<source>17</source>
+						<target>17</target>
 						<showWarnings>true</showWarnings>
 					</configuration>
 				</plugin>
 				<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
+					<artifactId>tomcat8-maven-plugin</artifactId>
 					<version>2.2</version>
 					<configuration>
 						<path>/</path>
@@ -79,7 +83,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private LoginService service = new LoginService();
+	private final LoginService service = new LoginService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -140,7 +144,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoService {
-	private static List<Todo> todos = new ArrayList<Todo>();
+	private static final List<Todo> todos = new ArrayList<Todo>();
 
 	static {
 		todos.add(new Todo("Learn Web Application"));
@@ -169,7 +173,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TodoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

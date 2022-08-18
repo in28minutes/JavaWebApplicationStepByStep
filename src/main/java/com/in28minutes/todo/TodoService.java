@@ -4,23 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoService {
-	private static List<Todo> todos = new ArrayList<Todo>();
-	static {
-		todos.add(new Todo("Learn Web Application Development", "Study"));
-		todos.add(new Todo("Learn Spring MVC", "Study"));
-		todos.add(new Todo("Learn Spring Rest Services", "Study"));
-	}
+    private static final List<Todo> todos = new ArrayList<>();
 
-	public List<Todo> retrieveTodos() {
-		return todos;
-	}
+    static {
+        todos.add(new Todo("Learn Web Application Development", "Study"));
+        todos.add(new Todo("Learn Spring MVC", "Study"));
+        todos.add(new Todo("Learn Spring Rest Services", "Study"));
+    }
 
-	public void addTodo(Todo todo) {
-		todos.add(todo);
-	}
+    public List<Todo> retrieveTodos() {
+        return todos;
+    }
 
-	public void deleteTodo(Todo todo) {
-		todos.remove(todo);
-	}
+    public void addTodo(Todo todo) {
+        todos.add(todo);
+    }
+
+    public void deleteTodo(Todo todo) {
+        todos.remove(todo);
+    }
 
 }
