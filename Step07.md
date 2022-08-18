@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
+			<version>8.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -23,17 +23,22 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
+					<version>3.8.1</version>
 					<configuration>
 						<verbose>true</verbose>
-						<source>1.7</source>
-						<target>1.7</target>
+						<source>17</source>
+						<target>17</target>
 						<showWarnings>true</showWarnings>
 					</configuration>
 				</plugin>
 				<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
+					<artifactId>tomcat8-maven-plugin</artifactId>
 					<version>2.2</version>
 					<configuration>
 						<path>/</path>
@@ -68,11 +73,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	private LoginService service = new LoginService();
+	private final LoginService userValidationService = new LoginService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

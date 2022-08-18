@@ -14,27 +14,26 @@ import javax.servlet.http.HttpServletRequest;
 @WebFilter(urlPatterns = "*.do")
 public class LoginRequiredFilter implements Filter {
 
-	@Override
-	public void destroy() {
+    @Override
+    public void destroy() {
 
-	}
+    }
 
-	@Override
-	public void doFilter(ServletRequest servletRequest,
-			ServletResponse servletResponse, FilterChain chain)
-			throws IOException, ServletException {
-		HttpServletRequest request = (HttpServletRequest) servletRequest;
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
 
-		if (request.getSession().getAttribute("name") != null) {
-			chain.doFilter(servletRequest, servletResponse);
-		} else {
-			request.getRequestDispatcher("/login.do").forward(servletRequest,
-					servletResponse);
-		}
-	}
+        if (request.getSession().getAttribute("name") != null) {
+            chain.doFilter(servletRequest, servletResponse);
+        } else {
+            request.getRequestDispatcher("/login.do").forward(servletRequest,
+                    servletResponse);
+        }
+    }
 
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-	}
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+    }
 
 }

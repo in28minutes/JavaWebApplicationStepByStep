@@ -13,7 +13,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
+            <version>8.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -25,12 +25,12 @@
  		<dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>3.3.6</version>
+            <version>5.1.3</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>1.9.1</version>
+            <version>3.6.0</version>
         </dependency>
     </dependencies>
 
@@ -40,17 +40,22 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>3.8.1</version>
                     <configuration>
                         <verbose>true</verbose>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>17</source>
+                        <target>17</target>
                         <showWarnings>true</showWarnings>
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <artifactId>tomcat8-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
                         <path>/</path>
@@ -137,8 +142,8 @@ import com.in28minutes.todo.TodoService;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	private LoginService userValidationService = new LoginService();
-	private TodoService todoService = new TodoService();
+	private final LoginService userValidationService = new LoginService();
+	private final TodoService todoService = new TodoService();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -202,7 +207,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/add-todo.do")
 public class AddTodoServlet extends HttpServlet {
 
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -233,7 +238,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/delete-todo.do")
 public class DeleteTodoServlet extends HttpServlet {
 
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -257,7 +262,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/list-todos.do")
 public class ListTodoServlet extends HttpServlet {
 
-	private TodoService todoService = new TodoService();
+	private final TodoService todoService = new TodoService();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -301,20 +306,17 @@ public class Todo {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Todo other = (Todo) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (name == null) {
+			return other.name == null;
+        } else return name.equals(other.name);
 	}
 
 }
@@ -355,8 +357,7 @@ public class TodoService {
 <html>
 <head>
 <title>Todos</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 .footer {
@@ -399,8 +400,8 @@ public class TodoService {
 		<div>footer content</div>
 	</footer>
 
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>
 
@@ -413,7 +414,7 @@ public class TodoService {
 <html>
 <head>
 <title>Todos</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <style>
@@ -467,8 +468,8 @@ public class TodoService {
 		<div>footer content</div>
 	</footer>
 
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>
 
@@ -481,7 +482,7 @@ public class TodoService {
 <html>
 <head>
 <title>Todos</title>
-<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <style>
@@ -529,8 +530,8 @@ public class TodoService {
 		<div>footer content</div>
 	</footer>
 
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>
 
